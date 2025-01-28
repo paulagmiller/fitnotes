@@ -1,0 +1,99 @@
+archetype (adl_version=1.4; uid=2490db36-c4cd-4e7b-9ad5-5d0cd8746641)
+	openEHR-EHR-COMPOSITION.uk_public_sector_certificates_and_reports.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2023-03-31">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"6985c600215d979eae9407db4ada61c5">
+		["build_uid"] = <"fbafd3f8-65be-32dc-b518-86eab840f2b9">
+	>
+
+definition
+	COMPOSITION[at0000] matches {    -- UK Public Sector Certificates and Reports
+		category matches {
+			DV_CODED_TEXT[at0001] matches {    -- Coded text
+				defining_code matches {
+					[openehr::433]
+				}
+			}
+		}
+		context matches {
+			EVENT_CONTEXT[at0002] matches {    -- Event Context
+				other_context matches {
+					ITEM_TREE[at0003] matches {    -- Item tree
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0005] occurrences matches {0..1} matches {    -- Certificate Identifier
+								value matches {
+									DV_IDENTIFIER matches {*}
+								}
+							}
+							ELEMENT[at0006] occurrences matches {0..1} matches {    -- Status
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {    -- Extension
+								include
+									archetype_id/value matches {/.*/}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"UK Public Sector Certificates and Reports">
+					description = <"UK Public Sector Certificates and Reports">
+				>
+				["at0001"] = <
+					text = <"Coded text">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Event Context">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Extension">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Certificate Identifier">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Status">
+					description = <"">
+				>
+			>
+		>
+	>
