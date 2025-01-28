@@ -1,0 +1,160 @@
+archetype (adl_version=1.4; uid=57cd1338-9cff-4679-804e-3e644ffef5b6)
+	openEHR-EHR-ADMIN_ENTRY.nes_ts_med_3_fit_note.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2023-03-31">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"40d34e9d855289cbfa04795e4e11dbf9">
+		["build_uid"] = <"3ceba001-a042-3c8d-aeef-9bbf55e0644f">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {    -- NES_TS Med 3 Fit Note
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0006] occurrences matches {0..1} matches {    -- Date of assessment
+						value matches {
+							DV_DATE matches {*}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {    -- Fit for work
+						value matches {
+							DV_BOOLEAN matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..*} matches {    -- Benefit from
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {    -- Comments
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {    -- Case for duration
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::128]>
+								list = <
+									["1"] = <
+										units = <"mo">
+									>
+									["2"] = <
+										units = <"wk">
+									>
+									["3"] = <
+										units = <"d">
+									>
+									["4"] = <
+										units = <"a">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {    -- Start Date
+						value matches {
+							DV_DATE matches {*}
+						}
+					}
+					ELEMENT[at0009] occurrences matches {0..1} matches {    -- End Date
+						value matches {
+							DV_DATE matches {*}
+						}
+					}
+					ELEMENT[at0010] occurrences matches {0..1} matches {    -- Need to reassess
+						value matches {
+							DV_BOOLEAN matches {*}
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {    -- Issuer
+						value matches {
+							DV_IDENTIFIER matches {*}
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0012] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"NES_TS Med 3 Fit Note">
+					description = <"NES_TS Med 3 Fit Note">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Fit for work">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Benefit from">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Comments">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Date of assessment">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Case for duration">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Start Date">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"End Date">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Need to reassess">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Issuer">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Extension">
+					description = <"">
+				>
+			>
+		>
+	>
